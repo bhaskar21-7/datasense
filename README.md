@@ -27,14 +27,7 @@
     <td align="center"><sub>Auto-generated histograms, scatter plots & frequency charts</sub></td>
     <td align="center"><sub>Color-coded Pearson correlation matrix</sub></td>
   </tr>
-  <tr>
-    <td><img src="screenshots/07_baseline_model.png" alt="Baseline ML model results" width="100%"/></td>
-    <td><img src="screenshots/06_statistical_insights.png" alt="Rule-based statistical insights" width="100%"/></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>One-click baseline model — kNN or Linear Regression</sub></td>
-    <td align="center"><sub>Rule-based statistical insights, 100% offline</sub></td>
-  </tr>
+  
 </table>
 
 ---
