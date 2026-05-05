@@ -1,141 +1,217 @@
-# DataSense — Instant Data Intelligence
+# DataSense — Offline Data Intelligence Engine
 
-> Drop a CSV or Excel file. Instantly get stats, charts, correlations, outliers, and a baseline ML model — no code, no cloud, no install.
+> Analyze any dataset directly in your browser. No backend. No uploads. No dependencies.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Try_it_now-6366f1?style=for-the-badge)](https://bhaskar21-7.github.io/datasense)
-[![No Install](https://img.shields.io/badge/No_Install-Open_in_Browser-22d3ee?style=for-the-badge)](https://bhaskar21-7.github.io/datasense)
-[![Privacy](https://img.shields.io/badge/Privacy-Data_never_leaves_your_machine-10b981?style=for-the-badge)](#)
-[![Version](https://img.shields.io/badge/Version-3.0-6366f1?style=for-the-badge)](#)
+DataSense is a **fully client-side data analysis system** that performs exploratory data analysis (EDA), statistical diagnostics, and baseline machine learning — instantly.
 
 ---
 
-## ✦ Preview
+## 🔗 Live Demo
 
-<table>
-  <tr>
-    <td><img src="screenshots/01_landing.png" alt="Landing page with CSV upload" width="100%"/></td>
-    <td><img src="screenshots/02_dataset_overview.png" alt="Dataset overview and data preview" width="100%"/></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>Drop any CSV/Excel — 4 sample datasets included</sub></td>
-    <td align="center"><sub>Instant dataset overview + scrollable data preview</sub></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/04_visualizations.png" alt="Auto-generated charts and histograms" width="100%"/></td>
-    <td><img src="screenshots/05_correlation_matrix.png" alt="Color-coded Pearson correlation matrix" width="100%"/></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>Auto-generated histograms, scatter plots &amp; frequency charts</sub></td>
-    <td align="center"><sub>Color-coded Pearson correlation matrix</sub></td>
-  </tr>
-  
-</table>
+👉 https://bhaskar21-7.github.io/datasense
 
 ---
 
-## What it does
+## 🚀 What This Actually Does
 
-Drop any CSV or Excel file and DataSense runs a full exploratory data analysis entirely in your browser — no server, no API key, no data upload.
+Drop a CSV or Excel file and DataSense will:
 
-**→ [Try the live demo](https://bhaskar21-7.github.io/datasense)**
+* Profile your dataset (types, missing values, distributions)
+* Generate statistical summaries (mean, std, IQR, skew hints)
+* Detect outliers using IQR method
+* Compute correlation matrix (Pearson r)
+* Generate interactive charts (histogram, scatter, bar, pie)
+* Provide rule-based insights and data quality signals
+* Train a baseline ML model (classification or regression)
+* Export results as text or PDF
 
----
-
-## Features
-
-**EDA (core strength)**
-- Dataset overview — shape, types, missing value count
-- Column-level stats — mean, std, min/max, median, IQR
-- Correlation matrix — row-aligned Pearson r, color-coded heatmap
-- Outlier detection — IQR method, flagged per column
-- Custom interactive charts — build scatter, pie, line, or bar charts on the fly
-- Distributions — auto-binned histograms (√n rule), scatter plots, frequency charts
-- Live data preview — fast search filtering with sortable columns
-- Key finding — auto-surfaces the single most important pattern in your data
-
-**Statistical Insights** *(rule-based, 100% offline)*
-- Missing value analysis with imputation recommendations
-- Multicollinearity detection (|r| ≥ 0.90 pairs)
-- Variance driver — identifies the column dominating data spread
-- Skewness flags with transformation suggestions (log, √)
-- High-cardinality column detection
-- Binary column classification target suggestions
-- Full preprocessing pipeline recommendation
-
-**Baseline Model** *(quick benchmarking)*
-- Auto-detects classification vs regression from target column
-- Classification → k-Nearest Neighbors (k=5)
-- Regression → Linear Regression (gradient descent, 200 epochs)
-- StandardScaler fit on training set only — no data leakage
-- Deterministic train/test split — same result every run
-- Feature correlation with target (with honest disclaimer)
-- Categorical columns excluded explicitly with note
-
-**Export & Compatibility**
-- **Excel support** — drag and drop `.xlsx` / `.xls` files (parsed locally via SheetJS)
-- Export full analysis as a `.txt` report
-- Download styled `.pdf` reports of the entire dashboard
+Everything runs **100% locally in your browser**.
 
 ---
 
-## Tech stack
+## 🧠 Why This Exists
 
-```
-CSV/Excel parsing  →  PapaParse + SheetJS
-Charts             →  Chart.js
-ML                 →  Vanilla JS (implemented from scratch)
-Stats              →  Rule-based engine (no external dependencies)
-Typography         →  Inter + JetBrains Mono (Google Fonts)
-Deploy             →  GitHub Pages
-```
+Most tools either:
 
-Zero backend. Zero dependencies to install. Everything runs client-side.
+* require coding (pandas, R), or
+* require uploading sensitive data (cloud dashboards)
 
----
+DataSense removes both constraints.
 
-## Try it in 10 seconds
+It is designed for:
 
-1. Open the [live demo](https://bhaskar21-7.github.io/datasense)
-2. Sales data loads automatically — full analysis is instant
-3. Or drop your own CSV/Excel, or click a sample chip
-
-**Built-in samples:** 🌸 Iris · 📊 Sales · 🎓 Students · 🚢 Titanic
+* quick dataset understanding
+* early-stage analysis
+* learning and experimentation
+* privacy-sensitive workflows
 
 ---
 
-## Run locally
+## ⚙️ Core Features
+
+### 📊 Exploratory Data Analysis
+
+* Column-level statistics (mean, std, median, min/max)
+* Missing value analysis with percentages
+* Unique counts and data type detection
+* Distribution estimation via histogram binning
+
+---
+
+### 🔗 Correlation Analysis
+
+* Full Pearson correlation matrix
+* Color-coded strength visualization
+* Detection of highly correlated feature pairs
+
+---
+
+### ⚠️ Outlier Detection
+
+* IQR-based detection (Q1, Q3, 1.5×IQR rule)
+* Outlier counts per column
+* Range diagnostics for anomaly inspection
+
+---
+
+### 📈 Visualization Engine
+
+* Auto-generated:
+
+  * Histograms (numeric columns)
+  * Frequency charts (categorical columns)
+  * Scatter plots (feature relationships)
+* Custom chart builder:
+
+  * Bar / Line / Scatter / Pie
+  * Aggregation support (mean grouping)
+
+---
+
+### 🤖 Baseline Machine Learning
+
+* Automatic task detection:
+
+  * Classification → k-NN
+  * Regression → Linear Regression
+* Train/test split (deterministic)
+* Feature normalization (no leakage)
+* Performance metrics:
+
+  * Accuracy (classification)
+  * R² and RMSE (regression)
+
+> ⚠️ This is a baseline model for quick evaluation — not production-grade ML.
+
+---
+
+### 💡 Insight Engine (Rule-Based)
+
+* Missing data warnings
+* Skewness detection and transformation hints
+* High-cardinality column detection
+* Multicollinearity signals (via correlation)
+* Variance-dominant feature identification
+
+---
+
+### 📄 Export
+
+* Download analysis as `.txt`
+* Export full dashboard as `.pdf`
+
+---
+
+## 🔒 Privacy by Design
+
+* No API calls
+* No data uploads
+* No tracking
+
+Your data **never leaves your device**.
+
+---
+
+## 🧱 Tech Stack
+
+* Parsing → PapaParse, SheetJS
+* Visualization → Chart.js
+* ML → Vanilla JavaScript (custom implementation)
+* UI → HTML, CSS (no frameworks)
+* Deployment → GitHub Pages
+
+---
+
+## ⚡ Performance Notes
+
+* Optimized for small to medium datasets (~10K–100K rows depending on width)
+* Entire dataset is processed in-memory
+* No streaming or chunking (yet)
+
+---
+
+## ❗ Limitations (Honest)
+
+* Not a replacement for pandas, R, or production ML pipelines
+* No advanced statistical inference (yet)
+* No categorical encoding in ML pipeline
+* No hyperparameter tuning
+* Insight engine is rule-based (not true AI)
+
+---
+
+## 🛣️ Roadmap
+
+Planned improvements:
+
+* [ ] Hypothesis testing (t-test, chi-square, ANOVA)
+* [ ] Feature importance and explainability
+* [ ] Additional models (decision tree, naive bayes)
+* [ ] Data preprocessing pipeline generation
+* [ ] Smarter query engine (beyond keyword matching)
+* [ ] Time-series detection
+
+---
+
+## 🧪 Use Cases
+
+* Quick dataset sanity check before modeling
+* Exploratory analysis without coding
+* Teaching statistics concepts interactively
+* Privacy-safe data inspection
+* Rapid prototyping before moving to Python/R
+
+---
+
+## 🧑‍💻 Local Setup
 
 ```bash
 git clone https://github.com/bhaskar21-7/datasense
 cd datasense
-# open index.html in any browser
+open index.html
 ```
 
-No build step. No `npm install`. One HTML file.
+No install. No build. No dependencies.
 
 ---
 
-## What it's not
+## 👤 Author
 
-- Not an AI tool — insights are statistical and rule-based
-- Not a production ML system — the model section is a quick baseline, not a deployment pipeline
-- Not a data storage service — your files never leave your browser
+Bhaskar Jha
+Statistics Undergraduate (MS 2027)
 
----
-
-## Roadmap
-
-- [ ] Additional baseline models (Naive Bayes, Decision Tree)
-- [ ] Natural language column querying
+GitHub: https://github.com/bhaskar21-7
 
 ---
 
-## Built by
+## ⭐ If This Helps
 
-**Bhaskar Jha** — Statistics undergraduate, MS 2027
-
-[![GitHub](https://img.shields.io/badge/GitHub-bhaskar21--7-181717?style=flat&logo=github)](https://github.com/bhaskar21-7)
+Star the repo. It helps others discover it.
 
 ---
 
-*If this saved you time, a ⭐ helps others find it.*
+## Final Note
+
+This project is intentionally built with **zero backend and zero dependencies** to demonstrate how far client-side data analysis can go.
+
+It is not meant to replace professional tools — but to make data understanding faster, simpler, and private.
